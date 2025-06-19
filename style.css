@@ -13,21 +13,73 @@ body {
     padding-top: 70px;
 }
 
-@media (max-width: 600px) {
-    .navbar-expand-sm .navbar-collapse {
-        display: none !important;
-    }
-    .navbar-expand-sm .navbar-toggler {
-        display: block !important;
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-@media (min-width: 601px) {
-    .navbar-expand-sm .navbar-collapse {
-        display: flex !important;
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f9fa;
+    padding: 0.75rem 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+}
+
+.nav-content {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-content a {
+    text-decoration: none;
+    color: #333;
+}
+
+.social-icons a {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
     }
-    .navbar-expand-sm .navbar-toggler {
-        display: none !important;
+    .nav-content {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background-color: #f8f9fa;
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+    #menu-toggle:checked+label+.nav-content {
+        display: flex;
     }
 }
 
@@ -930,22 +982,14 @@ iframe {
     overflow: hidden;
 }
 
-.howtofind {
-    transform: translateX(-100%);
-    transition: transform 0.5s ease;
-}
-
-.maps {
-    transform: translateX(100%);
-    transition: transform 0.5s ease;
-}
-
-.contact:hover .howtofind {
-    transform: translateX(0);
-}
-
-.contact:hover .maps {
-    transform: translateX(0);
+@media (max-width: 768px) {
+    .contact {
+        flex-direction: column;
+    }
+    .howtofind,
+    .maps {
+        width: 100%;
+    }
 }
 
 
